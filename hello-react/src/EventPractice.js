@@ -4,6 +4,24 @@ class EventPractice extends Component {
   state = {
     message: ""
   };
+
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({
+      message: e.target.value
+    });
+  }
+
+  handleClick(e) {
+    this.setState({
+      message: ""
+    });
+  }
   render() {
     return (
       <div>
@@ -13,23 +31,9 @@ class EventPractice extends Component {
           name="message"
           value={this.state.message}
           placeholder="아무거나 입력해 보세요."
-          onChange={e => {
-            //console.log(e.target.value);
-            this.setState({
-              message: e.target.value
-            });
-          }}
+          onChange={this.handleChange}
         />
-        <button
-          onClick={() => {
-            alert(this.state.message);
-            this.setState({
-              message: ""
-            });
-          }}
-        >
-          확인
-        </button>
+        <button onClick={this.handleClick}>확인</button>
       </div>
     );
   }
