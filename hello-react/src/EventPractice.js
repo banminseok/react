@@ -2,36 +2,47 @@ import React, { Component } from "react";
 
 class EventPractice extends Component {
   state = {
-    message: ""
+    username: "1",
+    message: "2"
   };
 
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleChange(e) {
+  handleChange = e => {
     this.setState({
-      message: e.target.value
+      [e.target.name]: e.target.value
     });
-  }
-
-  handleClick(e) {
+  };
+  handleClick = () => {
+    alert(this.state.username + ":" + this.state.message);
     this.setState({
+      username: "",
       message: ""
     });
-  }
+  };
+
+  handleKeyPress = e => {
+    if (e.key === "Enter") {
+      this.handleClick();
+    }
+  };
+
   render() {
     return (
       <div>
         <h1>이벤트 연습</h1>
         <input
           type="text"
+          name="username"
+          value={this.state.username}
+          placeholder="사용자명."
+          onChange={this.handleChange}
+        />
+        <input
+          type="text"
           name="message"
           value={this.state.message}
           placeholder="아무거나 입력해 보세요."
           onChange={this.handleChange}
+          onKeyPress={this.handleKeyPress}
         />
         <button onClick={this.handleClick}>확인</button>
       </div>
