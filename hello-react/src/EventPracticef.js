@@ -21,7 +21,7 @@ const EventPracticef = () => {
     });
   };
   const onKeyPress2 = e => {
-    if (e.key == "Enter") {
+    if (e.key === "Enter") {
       onClick2();
     }
   };
@@ -35,7 +35,7 @@ const EventPracticef = () => {
     setMessage("");
   };
   const onKeyPress = e => {
-    if (e.key == "Enter") {
+    if (e.key === "Enter") {
       onClick();
     }
   };
