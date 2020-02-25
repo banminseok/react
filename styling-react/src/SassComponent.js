@@ -1,6 +1,6 @@
 import React from "react";
 import "./SassComponent.scss";
-
+import CaseSensitivePathsWebpackPlugin from "case-sensitive-paths-webpack-plugin";
 const SassComponent = () => {
   return (
     <div className="SassComponent">
